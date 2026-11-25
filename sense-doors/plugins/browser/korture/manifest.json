@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Korture Sense",
+  "version": "0.2.1",
+  "description": "Hands your own Claude and ChatGPT messages to Korture Sense on your Mac, to measure how you work with AI. Nothing leaves your Mac.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3UFOiTD8rWrpvG25lKoRajim4KgGOLLxe8cvg26M8FDwtoOHl/IT0sOSmCiJickJeSiUJ5Q7cRtyaYXzOwxpnX3o1NhdWL8YyxHAJEKtvvWVPl0wJc9sogJCK4kzUq669P5QBIwJQJQ3Kt2QP5kOJhJrIzeZ4tCPXy4QYUh9i5e6M4n1iRYXFZjWbnAq7jOHvCVUX+9VO4IsavXfqpuCgQMoXRll9/vydObYdurTs6jm1ZprErgDGu+mf3cOg8GVoIUjuG7vDmlT8rWQ7lkHMnj9DkxW9E/mM+qGDtp3H+b+cNqWW2E0u7Uf+aIN7UPcxOyQ+EzCKX3fGq/2dBd7EQIDAQAB",
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": [
+    "nativeMessaging",
+    "alarms",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://claude.ai/*",
+    "https://chatgpt.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "homepage_url": "https://korture.ai"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "korture",
+  "version": "0.1.4",
+  "description": "KORTURE.ai Sense. It reads your chats with AI on your own Mac, with your own AI, and shows one number out of 100, the three parts behind it and the nine moves. Type /korture for your reading.",
+  "author": {
+    "name": "Korture",
+    "url": "https://korture.ai"
+  },
+  "homepage": "https://korture.ai",
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Korture Sense",
+    "shortDescription": "How you work with AI, measured",
+    "longDescription": "KORTURE measures how you work with AI, helps you understand the patterns, and builds an AI setup around how you want to improve. Its hooks start a reading when a chat ends and tell you once when there is news.",
+    "developerName": "Korture",
+    "category": "Productivity",
+    "websiteURL": "https://korture.ai"
+  }
+}

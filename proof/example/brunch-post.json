@@ -1,0 +1,25 @@
+{
+  "v": 1,
+  "title": "Weekend brunch menu post",
+  "kind": "post",
+  "finished": "A LinkedIn post announcing the bakery's new weekend brunch menu, posted the same day.",
+  "calls": [
+    {"what": "Announce the new weekend brunch menu on LinkedIn", "who": "you", "layer": 2, "quote": "Can you write a LinkedIn post announcing it?", "speaker": "you"},
+    {"what": "The menu: cardamom buns, leek galette, local coffee", "who": "you", "layer": 1, "quote": "cardamom buns, a leek and cheddar galette, and filter coffee from a roaster two streets away", "speaker": "you"},
+    {"what": "Weekend hours, Saturday and Sunday 8 to 1", "who": "you", "layer": 1, "quote": "Saturdays and Sundays, 8 to 1.", "speaker": "you"},
+    {"what": "Warm tone, not a sales pitch", "who": "you", "layer": 2, "quote": "Keep it warm, not salesy.", "speaker": "you"},
+    {"what": "A short post, about 90 words", "who": "ai", "layer": 3, "quote": "Here is a short post, about 90 words, for LinkedIn.", "speaker": "ai"},
+    {"what": "Three hashtags at the end", "who": "ai", "layer": 4, "quote": "#SmallBusiness #Bakery #WeekendBrunch", "speaker": "ai"},
+    {"what": "Cut the cliche line", "who": "you", "layer": 6, "quote": "Cut the 'life is too short' line, it's not us.", "speaker": "you"},
+    {"what": "A one-line hook instead of three sentences", "who": "you", "layer": 6, "quote": "The opening is too long. Give me a shorter hook, one line.", "speaker": "you"},
+    {"what": "Open on \"Our ovens now work weekends.\"", "who": "yes", "layer": 7, "quote": "Better.", "speaker": "you"},
+    {"what": "Add the price: brunch plate with coffee", "who": "you", "layer": 6, "quote": "Add the price: the brunch plate is £9 with coffee.", "speaker": "you"},
+    {"what": "Post it as it stands", "who": "you", "layer": 8, "quote": "Perfect, posting it.", "speaker": "you"}
+  ],
+  "moments": [
+    {"quote": "Cut the 'life is too short' line, it's not us.", "changed": "The post sounds like the bakery, not like an ad."},
+    {"quote": "Give me a shorter hook, one line.", "changed": "The opening went from three sentences to one line."},
+    {"quote": "Add the price: the brunch plate is £9 with coffee.", "changed": "Readers know what brunch costs before they walk in."}
+  ],
+  "next_time": {"layer": 3, "ai_decided": "How long the post is and how it ends.", "try": "Say the length and the last line in your first message."}
+}

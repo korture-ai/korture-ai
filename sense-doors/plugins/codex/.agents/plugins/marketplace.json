@@ -1,0 +1,12 @@
+{
+  "name": "korture",
+  "interface": { "displayName": "Korture" },
+  "plugins": [
+    {
+      "name": "korture",
+      "source": { "source": "local", "path": "./korture" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    }
+  ]
+}

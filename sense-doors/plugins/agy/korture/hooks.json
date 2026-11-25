@@ -1,0 +1,10 @@
+{
+  "korture": {
+    "SessionStart": [
+      { "type": "command", "command": "sh ./run.sh session-start --harness agy", "timeout": 10 }
+    ],
+    "Stop": [
+      { "type": "command", "command": "sh ./run.sh stop --harness agy", "timeout": 10 }
+    ]
+  }
+}

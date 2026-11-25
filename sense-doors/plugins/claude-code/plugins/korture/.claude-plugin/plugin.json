@@ -1,0 +1,8 @@
+{
+  "name": "korture",
+  "version": "0.1.11",
+  "description": "KORTURE.ai Sense. It reads your chats with AI on your own Mac, with your own AI, and shows one number out of 100, the three parts behind it, the nine moves, and the AI setup built from your reading. Type /korture for the reading and /improve to work on it. Read by the AI you already use.",
+  "author": {
+    "name": "Korture"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "korture",
+  "owner": { "name": "Korture" },
+  "metadata": { "description": "Korture Sense: one number, out of 100, from your own AI sessions. Read by the AI you already use." },
+  "plugins": [
+    {
+      "name": "korture",
+      "source": "./plugins/korture",
+      "description": "Reads your sessions at the end of each one, on your machine, with your own AI. One line at the start of the next, only when it is news. The AI in your chat knows your reading. /korture:improve hands it over to work on.",
+      "category": "productivity"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "manifest_version": "0.3",
+  "name": "korture",
+  "display_name": "Korture",
+  "version": "0.2.4",
+  "description": "Korture Sense for Claude chat: one number, out of 100, from your own chats, read by the AI you already use.",
+  "long_description": "Korture reads how you work with AI and shows one number out of 100, the parts behind it, and what is costing you points, with your own messages as evidence. This extension lets Claude pass each of your messages to Korture on your own machine, where your own AI reads them. Type /korture for the reading and /improve to work on it with Claude.",
+  "author": {
+    "name": "Korture",
+    "url": "https://korture.ai"
+  },
+  "homepage": "https://korture.ai",
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "korture_message",
+      "description": "Pass the person's latest message to Korture, verbatim, at the start of every turn."
+    },
+    {
+      "name": "korture_show",
+      "description": "Show the person's Korture.ai Sense."
+    },
+    {
+      "name": "korture_improve",
+      "description": "Work on the person's Korture reading with them."
+    },
+    {
+      "name": "korture_practice",
+      "description": "Start or stop one of the person's Improve practices, when they choose it."
+    },
+    {
+      "name": "korture_decide",
+      "description": "Write a choice the person made about how they work with AI into their Korture plan, in their own words."
+    },
+    {
+      "name": "korture_allowance",
+      "description": "Change how much of the person's AI Sense may use a day, or record the plan of their AI."
+    },
+    {
+      "name": "korture_view",
+      "description": "Give Korture your own view of how the person worked with you in their recent Claude chats."
+    }
+  ],
+  "prompts": [
+    {
+      "name": "korture",
+      "description": "Show my Korture.ai Sense",
+      "text": "Call the korture_show tool and print its result verbatim as a code block."
+    },
+    {
+      "name": "improve",
+      "description": "Work on my Korture reading with you",
+      "text": "Call the korture_improve tool and follow what it returns."
+    }
+  ],
+  "keywords": [
+    "korture",
+    "measurement",
+    "ai",
+    "habits"
+  ],
+  "license": "UNLICENSED",
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  }
+}
