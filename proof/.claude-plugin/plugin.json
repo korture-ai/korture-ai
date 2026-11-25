@@ -1,0 +1,8 @@
+{
+  "name": "korture-proof",
+  "version": "1.0.0",
+  "description": "Proof of your part in work you finished with AI: the calls you made, in your own words, and the share that was yours. Say \"show my proof\".",
+  "author": { "name": "Korture", "url": "https://www.korture.ai" },
+  "homepage": "https://www.korture.ai",
+  "license": "MIT"
+}

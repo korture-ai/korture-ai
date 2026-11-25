@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "korture-proof": { "type": "http", "url": "https://www.korture.ai/mcp" }
+  }
+}

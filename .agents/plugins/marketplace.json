@@ -1,0 +1,8 @@
+{
+  "name": "korture-ai",
+  "interface": { "displayName": "Korture AI" },
+  "plugins": [
+    { "name": "korture-proof", "source": { "source": "local", "path": "./proof" }, "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" }, "category": "Productivity" },
+    { "name": "korture-mode", "source": { "source": "local", "path": "./mode" }, "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" }, "category": "Productivity" }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "korture-mode",
+  "version": "1.0.0",
+  "description": "Say how you want to work with AI before a task: autopilot, copilot or practice.",
+  "author": { "name": "Korture", "url": "https://www.korture.ai" },
+  "homepage": "https://www.korture.ai",
+  "skills": "./skills/",
+  "interface": { "displayName": "Korture Mode", "developerName": "Korture", "category": "Productivity", "websiteURL": "https://www.korture.ai" }
+}

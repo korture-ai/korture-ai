@@ -1,61 +1,72 @@
-<p align="center"><img src="proof/bee.png" width="72" alt="Korture bee"></p>
+<p align="center"><img src="assets/bee.png" width="64" alt="Korture bee"></p>
 
-<h1 align="center">Korture AI</h1>
+<h1 align="center">Made with AI. Decided by you.</h1>
 
-<p align="center"><b>Tools for the human, not the AI.</b><br>
-Know your part in the work you do with AI. See how you work with it. Get better at it, if you want to.</p>
+<p align="center">Every AI tool measures the AI. Korture measures you, the person using it:<br>your part in the work, your habits, and whether you are getting better.</p>
 
-<p align="center"><a href="https://www.korture.ai">korture.ai</a></p>
+<p align="center"><a href="https://www.korture.ai"><b>korture.ai</b></a></p>
 
 ---
 
-## Why this exists
+## Why we built this
 
-A script writer does not direct the film or act in it. Directors and actors change lines on set. Still, everyone knows whose story it is, and the writer is proud of it.
+People told us how working with AI feels:
 
-Work with AI is the same. You gave the idea, the facts, the taste and the calls. The AI did the typing. Somewhere along the way, people started to argue about "human or AI" and "do you really own it". Detectors guess whether a person wrote something. Forums say that if you did not type the code, it is not yours.
+> "Cool to see my idea come to life, but I didn't write any of it, I didn't struggle, and I didn't learn." ([r/webdev](https://www.reddit.com/r/webdev/comments/1vcbj53/ai_took_away_the_sense_of_pride_i_used_to_have_in/p16o1o7/))
 
-We think that argument misses the point. Before AI, people worked with templates, books, teams and assistants, and nobody asked them to prove each word was theirs. What matters is that the work is good, that it helps someone, and that you know what you put into it.
+> "Am I actually learning in those situations, or am I just getting better at getting AI to solve problems for me?" ([r/ChatGPTCoding](https://www.reddit.com/r/ChatGPTCoding/comments/1x0bx6a/how_do_you_know_if_youre_actually_learning_when/))
 
-So these tools are for you, not for the world. They show you your own part, in your own words, so you can be clear about it and proud of it. Every other AI product measures the AI. Korture measures the human.
+> "write my own answer first, badly, before I open anything" ([r/ArtificialInteligence](https://www.reddit.com/r/ArtificialInteligence/comments/1vrv2wd/has_your_own_reasoning_gotten_weaker_since_you/p4llhbl/))
+
+A script writer does not direct the film or act in it, and actors change lines on set. Everyone still knows whose story it is. Before AI, we worked with templates, books, teams and assistants, and nobody asked us to prove every word was ours.
+
+AI also pulls your way of working in its own direction, a little each day. It guesses what finished looks like. It suggests, and you say yes. That can be fine. These tools show you where it happens, so the direction is your choice.
+
+They are for you, not for the world. There is no score of how human you are.
 
 ## What is here
 
-| | Part | What it does | Status |
+| | Part | What it does | Where it works |
 |---|---|---|---|
-| Open | [`proof/`](proof/) | **Korture Proof.** After a piece of work with AI, it shows your part: the calls you made, your best moments in your own words, and the share of the calls that were yours. | Works today in ChatGPT, Claude, Claude Code and Codex |
-| Open | [`skills/mode/`](skills/mode/) | **/mode.** Before a task, say how you want to work with AI: autopilot, copilot or practice. Your AI keeps to it. | Works in Claude Code |
-| Open, read only | [`sense-doors/`](sense-doors/) | **How Korture Sense gets in.** The plugins and the collector Sense uses in each AI app. Read them to see exactly what Sense reads on your computer. | Needs the Sense app to run |
-| Open, the idea | [`ideas/`](ideas/) | **How Sense measures.** The nine moves, the two parts of the number, and why the yardstick is outside you. | Read |
-| Experiment | [`experiments/habit-map/`](experiments/habit-map/) | **Habit map.** Your AI points out one of your habits, in one line, the moment it shows up. | Being tried, invite only |
-| Private | Korture Sense | The reader, the scoring, the Understand and Improve parts, and the expert lessons. | [Get Sense](https://www.korture.ai/get) |
+| **Open** | [Korture Proof](proof/) | After a piece of work with AI, shows your part: the calls you made, your best moments in your own words, and the share of the calls that were yours. | ChatGPT, Claude, Claude Code, Codex, and any AI that reads skills |
+| **Open** | [/mode](mode/) | Before a task, say how you want to work with AI: autopilot, copilot or practice. Your AI keeps to it. | Any AI that reads skills |
+| **Open to read** | [Sense plugins](sense-plugins/) | How Korture Sense gets into each AI app, and exactly what it reads on your computer. | Needs Korture Sense |
+| **Idea** | [Ideas](ideas/) | What good work with AI looks like at each step, and how Sense measures, with the research behind it. | Read anywhere |
+| **Experiment** | [Habit map](experiments/habit-map/) | Your AI points out one of your habits, in one line, when it shows up. | Being tried with a few people, not open yet |
+| **Private** | Korture Sense | The reader, the scoring and the expert lessons. This is what we sell. | [korture.ai](https://www.korture.ai) |
 
-## Start in one minute: Korture Proof
+## Start with Korture Proof
 
-**In ChatGPT or Claude:** add a custom connector with this address, with no sign-in:
+<p align="center"><img src="assets/proof-card.png" width="400" alt="A Korture Proof card: 82% of the calls in this were mine, with the person's own words as proof"></p>
+
+At the end of a piece of work, say **"show my proof"**. Add it one of three ways:
+
+**Connector**, for ChatGPT and Claude. The page is drawn inside your chat. Add a custom connector (in ChatGPT, a custom MCP server) with this address and no sign-in:
 
 ```
 https://www.korture.ai/mcp
 ```
 
-Then, at the end of any finished piece of work, say **"show my proof"**.
+<p align="center"><img src="assets/add-to-chatgpt.png" width="480" alt="Adding Korture Proof in ChatGPT: name Korture Proof, server URL https://www.korture.ai/mcp, no authentication"></p>
 
-**As a skill** (Claude, or any AI that loads skill folders): add the [`proof/`](proof/) folder as a skill. Say "show my proof".
+**Skill**, if you want nothing to leave your chat. Download `korture-proof.zip` from [Releases](../../releases) and upload it to Claude, or copy [`proof/skills/korture-proof`](proof/skills/korture-proof) into your AI's skills folder.
 
-**From the command line** (Claude Code, Codex):
+**Plugin**, for Claude Code:
 
-```bash
-claude mcp add --transport http korture-proof https://www.korture.ai/mcp
+```
+/plugin install korture-proof --marketplace korture-ai/korture-ai
 ```
 
-What Proof keeps: counts only (the kind of work, how many calls, how many were yours). Your AI reads the chat. The short quotes it picks pass through the Korture server to draw your page and are not stored. Details in [`proof/README.md`](proof/README.md).
+What Proof keeps: counts only. Your AI reads the chat. With the connector, short quotes pass through our server to draw the page and are not stored. [Read the server code.](proof/server/index.ts)
 
 ## What we keep private, and why
 
-Korture Sense is the product we sell. It reads every message you send to your AI, on your own computer, with your own AI, and scores how you worked against a standard from outside you. The questions it asks, the rules that turn answers into a number, and the lessons it teaches are what make it work. We keep those private.
+Korture Sense reads every message you send to your AI, on your computer, with your own AI, and shows how you work with it over time. The questions it asks, the rules that turn answers into a number, and the expert lessons it teaches are what we sell, so they stay private.
 
-What you can always read here is how Sense gets into your AI apps and what it reads. That part should never be a secret.
+How Sense gets into your apps, and what it reads, is open. A tool that reads your chats should never keep that secret.
+
+How Sense measures, and the research behind it: [ideas/](ideas/).
 
 ## License
 
-MIT, for everything in this repository. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).

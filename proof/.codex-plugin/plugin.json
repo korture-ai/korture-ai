@@ -1,0 +1,9 @@
+{
+  "name": "korture-proof",
+  "version": "1.0.0",
+  "description": "Proof of your part in work you finished with AI. Say \"show my proof\".",
+  "author": { "name": "Korture", "url": "https://www.korture.ai" },
+  "homepage": "https://www.korture.ai",
+  "skills": "./skills/",
+  "interface": { "displayName": "Korture Proof", "developerName": "Korture", "category": "Productivity", "websiteURL": "https://www.korture.ai" }
+}

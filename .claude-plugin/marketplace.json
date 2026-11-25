@@ -1,0 +1,19 @@
+{
+  "name": "korture-ai",
+  "owner": { "name": "Korture", "url": "https://www.korture.ai" },
+  "metadata": { "description": "Free tools from Korture. Know your part in the work you do with AI." },
+  "plugins": [
+    {
+      "name": "korture-proof",
+      "source": "./proof",
+      "description": "Proof of your part in work you finished with AI: the calls you made, in your own words, and the share that was yours.",
+      "category": "productivity"
+    },
+    {
+      "name": "korture-mode",
+      "source": "./mode",
+      "description": "Say how you want to work with AI before a task: autopilot, copilot or practice. Your AI keeps to it.",
+      "category": "productivity"
+    }
+  ]
+}

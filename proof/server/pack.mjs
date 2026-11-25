@@ -2,8 +2,8 @@
 // Usage: node tools/proof/server/pack.mjs
 import { readFileSync, writeFileSync } from 'node:fs';
 const here = (f) => new URL(f, import.meta.url);
-const page = readFileSync(here('../page.html'), 'utf8');
-const skill = readFileSync(here('../SKILL.md'), 'utf8').replace(/^---[\s\S]*?---\s*/, '');
+const page = readFileSync(here('../skills/korture-proof/page.html'), 'utf8');
+const skill = readFileSync(here('../skills/korture-proof/SKILL.md'), 'utf8').replace(/^---[\s\S]*?---\s*/, '');
 // The guide is the skill without the parts that only make sense for a skill file.
 const guide = skill.replace(/## How it looks[\s\S]*?(?=\nRules:)/, '');
 writeFileSync(here('./page.ts'), `export const PAGE = ${JSON.stringify(page)};\n`);

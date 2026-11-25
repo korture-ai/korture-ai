@@ -39,6 +39,16 @@ Asking "did you check the work?" says little, because almost everyone checks som
 - **What you did,** 75 of 100: the nine moves.
 - **How it felt,** 25 of 100: what the work is doing to you. Frustration at a mistake the AI made costs you nothing.
 
+## The research behind it
+
+We did not make the scale up. We took it from fields that have rated how people work with tools and teams for decades.
+
+- **The behaviours.** The nine moves sit on the competency framework airlines use to rate pilots, and on the handbooks hospitals use to rate how surgeons and anaesthetists work with their teams. We read for the same things, in work with AI.
+- **How well, on a scale.** Those schemes score how well, from a real miss to getting ahead of the problem, with "not observed" when nothing was at stake. Competent work sits in the middle.
+- **Feedback must give you something to do.** In a review of feedback studies, feedback made performance worse in 38% of cases ([Kluger and DeNisi, 1996](https://doi.org/10.1037/0033-2909.119.2.254)). That is why every reading comes with the moments behind it and what to try.
+
+We do not publish the questions Sense asks or the rules that turn answers into a number. Those are the product.
+
 ## A number alone is not enough
 
 Feedback with nothing to do about it can make people worse. So every reading shows the real moments behind it, in your own words, and what people who work well with AI have learned. You choose what to practise: many things, one, or none. The next readings show which way each one went.

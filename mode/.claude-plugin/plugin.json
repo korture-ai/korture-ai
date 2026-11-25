@@ -1,0 +1,8 @@
+{
+  "name": "korture-mode",
+  "version": "1.0.0",
+  "description": "Say how you want to work with AI before a task: /mode autopilot, /mode copilot or /mode practice. Your AI keeps to it.",
+  "author": { "name": "Korture", "url": "https://www.korture.ai" },
+  "homepage": "https://www.korture.ai",
+  "license": "MIT"
+}
