@@ -100,7 +100,7 @@ section{padding-block:clamp(40px,7vw,80px);border-top:1px solid var(--rule)}
 .next dl{margin:0;display:grid;gap:18px}
 .next dt{font-size:14px;color:var(--muted)}
 .next dd{margin:2px 0 0;font-family:var(--serif);font-size:1.6rem;line-height:1.15}
-.btn{height:52px;padding:0 22px;border:0;border-radius:var(--r);background:var(--ink);color:var(--paper-light);font-size:16px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:background .2s}
+.btn{height:52px;padding:0 22px;white-space:nowrap;border:0;border-radius:var(--r);background:var(--ink);color:var(--paper-light);font-size:16px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:background .2s}
 .btn:hover{background:var(--violet)}
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
 .btn.ghost:hover{background:var(--ink);color:var(--paper-light)}
@@ -119,6 +119,14 @@ th{text-align:left;font-weight:500;color:var(--muted);padding:8px 10px 8px 0;bor
 td{padding:10px 10px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
 td q{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--muted)}
 
+/* inside an AI chat: a short card in the chat, the whole page in full view */
+.more{grid-column:1/-1;display:none}
+.compact .more{display:block}
+.compact section:not(.hero),.compact footer{display:none}
+.compact .hero{padding-bottom:24px}
+.more .btn{justify-content:center}
+.full footer{padding-bottom:160px}
+
 footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px 48px;border-top:1px solid var(--rule);font-size:14px;color:var(--muted)}
 footer span{display:inline-flex;align-items:center;gap:8px}
 
@@ -126,10 +134,18 @@ footer span{display:inline-flex;align-items:center;gap:8px}
   .hero,.layers,.next,.share{grid-template-columns:minmax(0,1fr)}
   .moments{grid-template-columns:minmax(0,1fr)}
   .box{height:360px;padding-bottom:40px}
+  .compact .box{height:300px;padding-bottom:28px}
+  .more .btn{width:100%}
   .stack{width:min(210px,56vw)}
   table thead{display:none}
   table tr{display:grid;gap:4px;padding:12px 0;border-bottom:1px solid var(--rule)}
   table td{border:0;padding:0}
+}
+@media (max-width:520px){
+  .row{grid-template-columns:16px minmax(0,1fr) 18px;row-gap:2px}
+  .row .sw{grid-row:1}
+  .row small{grid-column:2;grid-row:2;white-space:normal}
+  .row .ic{grid-column:3;grid-row:1/span 2}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -140,6 +156,7 @@ footer span{display:inline-flex;align-items:center;gap:8px}
   <symbol id="i-save" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+  <symbol id="i-full" viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" x2="14" y1="3" y2="10"/><line x1="3" x2="10" y1="21" y2="14"/></symbol>
   <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
 </svg>
 
@@ -160,6 +177,7 @@ footer span{display:inline-flex;align-items:center;gap:8px}
       </div>
     </div>
     <div class="box" id="box"><div class="stack" id="stack"></div></div>
+    <div class="more"><button type="button" class="btn" id="more"><svg class="ic"><use href="#i-full"/></svg>See how it was made</button></div>
   </section>
 
   <section class="layers">
@@ -222,14 +240,7 @@ function start(D){
   document.getElementById('bee').setAttribute('d', BEE);
 
   /* data: embedded by build.mjs, or in the link after #d= (the part after # never reaches a server) */
-  /* inside ChatGPT: a button to open the full view */
-  if (window.openai && window.openai.requestDisplayMode) {
-    var fb = document.createElement('button'); fb.type = 'button'; fb.className = 'btn ghost'; fb.style.height = '36px'; fb.textContent = 'Open full view';
-    fb.addEventListener('click', function(){ window.openai.requestDisplayMode({ mode: 'fullscreen' }); });
-    var mt = document.getElementById('meta'); mt.hidden = true; mt.parentNode.appendChild(fb);
-    var fsync = function(){ fb.hidden = window.openai.displayMode === 'fullscreen'; };
-    fsync(); window.addEventListener('openai:set_globals', fsync);
-  }
+  if (window.parent !== window) document.getElementById('meta').hidden = true;
 
   var NAMES = ['What you gave it','Your ask','What finished looks like',"The AI's first draft",'Your questions','Your steers',"The AI's rework",'The finished work'];
   var YOURS = ['var(--honey)','var(--honey-light)','var(--honey)','var(--honey-pale)','var(--honey-light)','var(--honey)','var(--honey-pale)'];
@@ -346,11 +357,20 @@ function start(D){
     li.appendChild(b); li.appendChild(ul); $('list').appendChild(li); rows[i] = { b:b, ul:ul };
   })(k);
   function open(i, fromStack){
+    /* in the chat's short card, a tap on the stack opens the full view at that layer */
+    if (fromStack && isCompact()) { goFull(i); return; }
     var was = rows[i].b.getAttribute('aria-expanded') === 'true';
     rows.forEach(function(r, j){ var on = j === i && !was; r.b.setAttribute('aria-expanded', on ? 'true' : 'false'); r.ul.hidden = !on; });
     sheets.forEach(function(d, j){ d.classList.toggle('on', j === i && !was); });
-    if (fromStack && !was) rows[i].b.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'center' });
+    /* scroll this page only, never the chat around it (scrollIntoView moved the whole ChatGPT chat) */
+    if (fromStack && !was) scrollOwn(rows[i].b);
   }
+  openLayer = function(i){ if (rows[i].b.getAttribute('aria-expanded') !== 'true') open(i, false); scrollOwn(rows[i].b); };
+  function scrollOwn(el){
+    var top = el.getBoundingClientRect().top + window.scrollY - Math.round(window.innerHeight / 4);
+    window.scrollTo({ top: Math.max(0, top), behavior: still ? 'auto' : 'smooth' });
+  }
+  scrollToLayers = function(){ scrollOwn(document.querySelector('.layers')); };
 
   /* moments */
   var M = (D.moments || []).slice(0, 3);
@@ -448,6 +468,31 @@ function start(D){
   });
 }
 
+/* where it is shown: a page of its own, the chat (inline), or the chat's full view */
+var host = { canFull: false, mode: 'inline' }, pending = null, openLayer = null, scrollToLayers = null, fullId = 0;
+function isCompact(){ return host.canFull && host.mode !== 'fullscreen'; }
+function applyMode(){
+  var oa = window.openai;
+  if (oa && oa.requestDisplayMode) { host.canFull = true; host.mode = oa.displayMode || 'inline'; }
+  var h = document.documentElement;
+  h.classList.toggle('compact', isCompact());
+  h.classList.toggle('full', host.mode === 'fullscreen');
+  if (host.mode === 'fullscreen' && started) {
+    if (pending === null && oa && oa.widgetState && typeof oa.widgetState.open === 'number') pending = oa.widgetState.open;
+    var p = pending; pending = null;
+    if (p !== null) setTimeout(function(){ if (p >= 0 && openLayer) openLayer(p); else if (scrollToLayers) scrollToLayers(); }, 60);
+  }
+}
+function goFull(layer){
+  pending = typeof layer === 'number' ? layer : -1;
+  var oa = window.openai;
+  if (oa && oa.requestDisplayMode) {
+    if (oa.setWidgetState) { try { oa.setWidgetState({ open: pending }); } catch (e) {} }
+    Promise.resolve(oa.requestDisplayMode({ mode: 'fullscreen' })).then(function(r){ if (r && r.mode) host.mode = r.mode; applyMode(); }, function(){});
+  } else if (inApp) { fullId = ++rid; toHost({ id: fullId, method: 'ui/request-display-mode', params: { mode: 'fullscreen' } }); }
+}
+document.getElementById('more').addEventListener('click', function(){ goFull(-1); });
+
 /* where the result comes from: the link after #d= (never reaches a server), the page itself, or ChatGPT's tool result */
 function getData(){
   try { var h = location.hash.match(/#d=(.+)$/); if (h) return JSON.parse(decodeURIComponent(escape(atob(h[1].replace(/-/g,'+').replace(/_/g,'/'))))); } catch(e) {}
@@ -459,7 +504,7 @@ function getData(){
   return null;
 }
 var started = false;
-function go(){ if (started) return; var D = getData(); if (D) { started = true; start(D); } }
+function go(){ if (started) return; var D = getData(); if (D) { started = true; start(D); applyMode(); } }
 
 /* MCP Apps (Claude, and any app that follows the open standard): the host hands the tool result over by message */
 var appData = null, inApp = window.parent !== window, rid = 0;
@@ -468,7 +513,18 @@ window.addEventListener('message', function(e){
   if (e.source !== window.parent) return;
   var m = e.data || {};
   if (m.method === 'ui/notifications/tool-result' && m.params && m.params.structuredContent) { appData = m.params.structuredContent; go(); }
-  if (m.id === 1 && m.result) { toHost({ method: 'ui/notifications/initialized', params: {} }); sendSize(); }
+  if (m.id === 1 && m.result) {
+    var hc = m.result.hostContext || {};
+    if ((hc.availableDisplayModes || []).indexOf('fullscreen') >= 0) host.canFull = true;
+    if (hc.displayMode) host.mode = hc.displayMode;
+    applyMode();
+    toHost({ method: 'ui/notifications/initialized', params: {} }); sendSize();
+  }
+  if (fullId && m.id === fullId && m.result) { if (m.result.mode) host.mode = m.result.mode; applyMode(); }
+  if (m.method === 'ui/notifications/host-context-changed' && m.params) {
+    var dm = m.params.displayMode || (m.params.hostContext && m.params.hostContext.displayMode);
+    if (dm) { host.mode = dm; applyMode(); }
+  }
 });
 function sendSize(){ if (inApp) toHost({ method: 'ui/notifications/size-changed', params: { height: Math.ceil(document.documentElement.scrollHeight) } }); }
 if (inApp) {
@@ -476,8 +532,9 @@ if (inApp) {
   if (window.ResizeObserver) new ResizeObserver(sendSize).observe(document.body);
 }
 
+applyMode();
 go();
-window.addEventListener('openai:set_globals', go);
+window.addEventListener('openai:set_globals', function(){ go(); applyMode(); });
 var tries = 0, iv = setInterval(function(){ go(); if (started || ++tries > 150) clearInterval(iv); }, 100);
 </script>
 </body>
